@@ -27,5 +27,20 @@ namespace Store_System
         {
 
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+             
+        }
+
+        private void InsertCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
