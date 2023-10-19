@@ -16,6 +16,7 @@ namespace Store_System
         public Main()
         {
             InitializeComponent();
+            Password.UseSystemPasswordChar = true;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -43,8 +44,8 @@ namespace Store_System
                 Login login = new Login(SUsername , SPassword);
                 if (login.SearchAccount())
                 {
-                   AccountType = login.AccountType;
-                    Home NewForm = new Home(AccountType);
+                    AccountType = login.AccountType;
+                    Home NewForm = new Home(AccountType, Convert.ToString(login.ID));
                     NewForm.ShowDialog();
                 }
             }
@@ -52,6 +53,11 @@ namespace Store_System
             {
                 MessageBox.Show("عفوا يجب ادخال جميع البيانات");
             }
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

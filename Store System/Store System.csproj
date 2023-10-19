@@ -47,8 +47,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppClasses\CategoryClass.cs" />
     <Compile Include="AppClasses\DataBase.cs" />
     <Compile Include="AppClasses\Login.cs" />
+    <Compile Include="Category\Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Category\Add.Designer.cs">
+      <DependentUpon>Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Category\Modify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Category\Modify.Designer.cs">
+      <DependentUpon>Modify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Category\Remove.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Category\Remove.Designer.cs">
+      <DependentUpon>Remove.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Category\ShowAll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Category\ShowAll.Designer.cs">
+      <DependentUpon>ShowAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Category\ShowFull.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Category\ShowFull.Designer.cs">
+      <DependentUpon>ShowFull.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +94,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Category\Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>

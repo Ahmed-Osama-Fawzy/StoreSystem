@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Store_System.Category;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,10 +18,12 @@ namespace Store_System
             InitializeComponent();
         }
         public string AccountType = "";
-        public Home(string S)
+        public string UserID = "";
+        public Home(string S , string N)
         {
             InitializeComponent();
             AccountType = S;
+            UserID = N;
         }
 
         private void Home_Load(object sender, EventArgs e)
@@ -41,6 +44,12 @@ namespace Store_System
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Add NewForm = new Add(UserID);
+            NewForm.ShowDialog();
         }
     }
 }

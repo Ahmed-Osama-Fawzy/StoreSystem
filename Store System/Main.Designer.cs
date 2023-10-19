@@ -173,6 +173,7 @@
             this.RightToLeftLayout = true;
             this.Text = " تسجيل الدخول";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Main_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

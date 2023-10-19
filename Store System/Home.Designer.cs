@@ -67,14 +67,14 @@
             this.PricesEditing = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.Username = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Username = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -230,6 +230,7 @@
             this.button2.Text = " اضافة قسم";
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // pictureBox2
             // 
@@ -563,67 +564,17 @@
             this.panel1.Size = new System.Drawing.Size(1129, 267);
             this.panel1.TabIndex = 46;
             // 
-            // dataGridView1
+            // label3
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.MenuHighlight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 46);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1107, 211);
-            this.dataGridView1.TabIndex = 46;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label2.Location = new System.Drawing.Point(1162, 27);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 25);
-            this.label2.TabIndex = 48;
-            this.label2.Text = "اسم المستخدم";
-            // 
-            // Username
-            // 
-            this.Username.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.Username.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Username.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Username.Location = new System.Drawing.Point(669, 11);
-            this.Username.Name = "Username";
-            this.Username.Size = new System.Drawing.Size(275, 31);
-            this.Username.TabIndex = 47;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(190, 9);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(311, 32);
-            this.comboBox1.TabIndex = 49;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label1.Location = new System.Drawing.Point(987, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 25);
-            this.label1.TabIndex = 50;
-            this.label1.Text = "ابحث عن شئ";
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(392, 664);
-            this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(5);
-            this.button4.Size = new System.Drawing.Size(184, 55);
-            this.button4.TabIndex = 47;
-            this.button4.UseVisualStyleBackColor = false;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.label3.Location = new System.Drawing.Point(507, 11);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(131, 25);
+            this.label3.TabIndex = 51;
+            this.label3.Text = "حدد حقل البحث";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // button6
             // 
@@ -637,17 +588,67 @@
             this.button6.Text = "افراغ البيانات";
             this.button6.UseVisualStyleBackColor = false;
             // 
-            // label3
+            // label1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label3.Location = new System.Drawing.Point(507, 11);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(131, 25);
-            this.label3.TabIndex = 51;
-            this.label3.Text = "حدد حقل البحث";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.label1.Location = new System.Drawing.Point(987, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(117, 25);
+            this.label1.TabIndex = 50;
+            this.label1.Text = "ابحث عن شئ";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(190, 9);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(311, 32);
+            this.comboBox1.TabIndex = 49;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.label2.Location = new System.Drawing.Point(1162, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(116, 25);
+            this.label2.TabIndex = 48;
+            this.label2.Text = "اسم المستخدم";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.MenuHighlight;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(10, 46);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(1107, 211);
+            this.dataGridView1.TabIndex = 46;
+            // 
+            // Username
+            // 
+            this.Username.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.Username.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Username.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Username.Location = new System.Drawing.Point(669, 11);
+            this.Username.Name = "Username";
+            this.Username.Size = new System.Drawing.Size(275, 31);
+            this.Username.TabIndex = 47;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button4.Location = new System.Drawing.Point(392, 664);
+            this.button4.Name = "button4";
+            this.button4.Padding = new System.Windows.Forms.Padding(5);
+            this.button4.Size = new System.Drawing.Size(184, 55);
+            this.button4.TabIndex = 47;
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // pictureBox16
             // 

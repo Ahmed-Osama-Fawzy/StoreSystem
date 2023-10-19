@@ -14,6 +14,7 @@ namespace Store_System.AppClasses
         public string Username { get; set; }
         public string Password { get; set; }
         public string AccountType { get; set; }
+        public int ID { get; set; }
         public DataBase DB = new DataBase("", "Users");
         public Login(string U , string P) 
         {
@@ -23,7 +24,7 @@ namespace Store_System.AppClasses
         public bool SearchAccount()
         {
             bool Finded = false;
-            DataTable dt = DB.Select("Username", "Password", "AccountType");
+            DataTable dt = DB.Select("ID","Username", "Password", "AccountType");
             if(dt.Rows.Count > 0 )
             {
                 for(int i = 0 ; i < dt.Rows.Count; i++)
@@ -32,6 +33,7 @@ namespace Store_System.AppClasses
                     if (Convert.ToString(dr["Username"]) == Username && Convert.ToString(dr["Password"]) == Password)
                     {
                         AccountType = Convert.ToString(dr["AccountType"]);
+                        ID = Convert.ToInt32(dr["ID"]);
                         Finded = true;
                     }
                     else
