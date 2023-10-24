@@ -37,7 +37,7 @@ namespace Store_System.Category
             string Name = CategoryName.Text;
             if(!string.IsNullOrEmpty(CDate) && !string.IsNullOrEmpty(UserId) && !string.IsNullOrEmpty(Name)) 
             {
-                CategoryClass category = new CategoryClass();
+                AppClasses.Category category = new AppClasses.Category();
                 category.Name = Name;
                 category.Date = CDate;
                 category.UserID = Convert.ToInt32(UserId);
@@ -55,6 +55,11 @@ namespace Store_System.Category
             {
                 MessageBox.Show("عفوا يجب ادخال البيانات كاملة اولا");
             }
+        }
+
+        private void Add_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

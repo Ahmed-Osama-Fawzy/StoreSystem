@@ -158,6 +158,7 @@
             this.InsertSupplier.Text = " اضافة مورد";
             this.InsertSupplier.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.InsertSupplier.UseVisualStyleBackColor = false;
+            this.InsertSupplier.Click += new System.EventHandler(this.InsertSupplier_Click);
             // 
             // pictureBox7
             // 
@@ -265,6 +266,7 @@
             this.InsertUser.Text = " اضافة مستخدم";
             this.InsertUser.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.InsertUser.UseVisualStyleBackColor = false;
+            this.InsertUser.Click += new System.EventHandler(this.InsertUser_Click);
             // 
             // Customers
             // 
@@ -439,6 +441,7 @@
             this.EnterBill.Text = "ادخال فاتورة";
             this.EnterBill.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.EnterBill.UseVisualStyleBackColor = false;
+            this.EnterBill.Click += new System.EventHandler(this.EnterBill_Click);
             // 
             // pictureBox12
             // 
@@ -623,10 +626,11 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.MenuHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 46);
+            this.dataGridView1.Location = new System.Drawing.Point(27, 47);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1107, 211);
             this.dataGridView1.TabIndex = 46;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Username
             // 

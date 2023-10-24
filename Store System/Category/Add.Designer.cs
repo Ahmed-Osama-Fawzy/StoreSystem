@@ -150,6 +150,7 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.Text = "اضافة قسم جديد";
+            this.Load += new System.EventHandler(this.Add_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

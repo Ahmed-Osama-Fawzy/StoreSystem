@@ -47,9 +47,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppClasses\CategoryClass.cs" />
-    <Compile Include="AppClasses\DataBase.cs" />
-    <Compile Include="AppClasses\Login.cs" />
+    <Compile Include="AppClasses\Bills\CustomerBill.cs" />
+    <Compile Include="AppClasses\Bills\MainBill.cs" />
+    <Compile Include="AppClasses\Bills\SupplierBill.cs" />
+    <Compile Include="AppClasses\Objects\Category.cs" />
+    <Compile Include="AppClasses\Controls\DataBase.cs" />
+    <Compile Include="AppClasses\Controls\Login.cs" />
+    <Compile Include="AppClasses\Objects\Product.cs" />
+    <Compile Include="AppClasses\Objects\Supplier.cs" />
+    <Compile Include="AppClasses\Controls\User.cs" />
+    <Compile Include="AppClasses\Objects\Customer.cs" />
+    <Compile Include="Bills\SupplierBills\Enter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bills\SupplierBills\Enter.Designer.cs">
+      <DependentUpon>Enter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bills\SupplierBills\NewBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bills\SupplierBills\NewBill.Designer.cs">
+      <DependentUpon>NewBill.cs</DependentUpon>
+    </Compile>
     <Compile Include="Category\Add.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +99,12 @@
     <Compile Include="Category\ShowFull.Designer.cs">
       <DependentUpon>ShowFull.cs</DependentUpon>
     </Compile>
+    <Compile Include="Customer\Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer\Add.Designer.cs">
+      <DependentUpon>Add.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,7 +119,28 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Supplier\Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Supplier\Add.Designer.cs">
+      <DependentUpon>Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\Add.Designer.cs">
+      <DependentUpon>Add.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Bills\SupplierBills\Enter.resx">
+      <DependentUpon>Enter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bills\SupplierBills\NewBill.resx">
+      <DependentUpon>NewBill.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Category\Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\Add.resx">
       <DependentUpon>Add.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
@@ -112,6 +158,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Supplier\Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -125,5 +177,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

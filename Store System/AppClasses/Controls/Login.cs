@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Workshop_System.App_Class;
 
 namespace Store_System.AppClasses
 {
@@ -15,7 +16,7 @@ namespace Store_System.AppClasses
         public string Password { get; set; }
         public string AccountType { get; set; }
         public int ID { get; set; }
-        public DataBase DB = new DataBase("", "Users");
+        public DataBase DB = new DataBase("dbo", "Users");
         public Login(string U , string P) 
         {
             Username = U;
@@ -35,10 +36,7 @@ namespace Store_System.AppClasses
                         AccountType = Convert.ToString(dr["AccountType"]);
                         ID = Convert.ToInt32(dr["ID"]);
                         Finded = true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("عفوا لا يوجد مستخدمين بهذه البيانات");
+                        break;
                     }
                 }
             }

@@ -1,14 +1,16 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Store_System.AppClasses
+namespace Workshop_System.App_Class
 {
     internal class DataBase
     {
@@ -47,9 +49,9 @@ namespace Store_System.AppClasses
                         Values += $"N'{Inputs[i + 1]}' ,";
                     }
                 }
-                MessageBox.Show($"{Keys} {Values}");
                 Keys = Keys.Remove(Keys.Length - 1);
                 Values = Values.Remove(Values.Length - 1);
+                MessageBox.Show($"{Keys} {Values}");
                 string Query = $"INSERT INTO {this.Table}({Keys}) VALUES ({Values})";
                 SqlCommand cmd = new SqlCommand(Query, conn);
                 conn.Open();
@@ -337,7 +339,7 @@ namespace Store_System.AppClasses
                     }
                     else
                     {
-                        string Query = $"SELECT {Selected} FROM {this.Table} WHERE {Inputs[0]} = '{Inputs[1]}'";
+                        string Query = $"SELECT {Selected} FROM {this.Table} WHERE {Inputs[0]} = N'{Inputs[1]}'";
                         SqlCommand cmd = new SqlCommand(Query, conn);
                         SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                         conn.Open();
@@ -357,6 +359,7 @@ namespace Store_System.AppClasses
                     else
                     {
                         string Query = $"SELECT * FROM {this.Table} WHERE {Inputs[0]} = '{Inputs[1]}'";
+                        MessageBox.Show(Query);
                         SqlCommand cmd = new SqlCommand(Query, conn);
                         SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                         conn.Open();
@@ -422,6 +425,60 @@ namespace Store_System.AppClasses
             try
             {
                 string Query = S;
+                SqlCommand cmd = new SqlCommand(Query, conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                conn.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("The Error IS: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dt;
+        }
+        public DataTable GetData(string Key,string N)
+        {
+            Schema = "dbo";
+            Name = N;
+            Table = Schema + "." + Name;
+            DataTable dt = SelectOne("Category", $"{Key}", "false", "Value");
+            if (dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            return null;
+        }
+        public DataTable MulitpeSelect(string S, params string[] Inputs)
+        {
+            SqlConnection conn = new SqlConnection(connection);
+            DataTable dt = new DataTable();
+            string Q = "";
+            if (Inputs.Length > 1)
+            {
+                for (int i = 0; i < Inputs.Length; i += 3)
+                {
+                    if (Inputs[i + 2].ToLower() == "false")
+                        Q += $"{Inputs[i]} = N'{Inputs[i + 1]}' AND ";
+                    else
+                        Q += $"{Inputs[i]} = {Inputs[i + 1]} AND ";
+                }
+                Q = Q.Remove(Q.Length - 4);
+            }
+            try
+            {
+                string Query = "";
+                if (Q.Length > 0)
+                {
+                    Query = $"SELECT {S} FROM {this.Table} WHERE {Q}";
+                }
+                else
+                {
+                    Query = $"SELECT {S} FROM {this.Table}";
+                }
                 SqlCommand cmd = new SqlCommand(Query, conn);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 conn.Open();
