@@ -207,6 +207,7 @@
             this.CreateBill.Text = "استخراج فاتورة";
             this.CreateBill.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.CreateBill.UseVisualStyleBackColor = false;
+            this.CreateBill.Click += new System.EventHandler(this.CreateBill_Click);
             // 
             // pictureBox9
             // 

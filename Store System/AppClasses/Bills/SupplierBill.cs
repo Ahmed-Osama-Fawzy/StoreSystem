@@ -20,7 +20,12 @@ namespace Store_System.AppClasses.Bills
         DataBase DB = new DataBase("dbo","SupplierBill");
         public bool Insert()
         {
-            bool Inserted = false;
+            bool Inserted = DB.Insert(
+                "BillID",$"{BillID}","true"
+               ,"SupplierID",$"{SupplierID}","true"
+               ,"ProductID",$"{ProductID}","true"
+               ,"Amount",$"{Amount}","true"
+               ,"Price",$"{Price}","true");
             return Inserted;
         }
     }

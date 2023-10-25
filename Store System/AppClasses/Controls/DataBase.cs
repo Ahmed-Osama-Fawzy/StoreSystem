@@ -51,7 +51,6 @@ namespace Workshop_System.App_Class
                 }
                 Keys = Keys.Remove(Keys.Length - 1);
                 Values = Values.Remove(Values.Length - 1);
-                MessageBox.Show($"{Keys} {Values}");
                 string Query = $"INSERT INTO {this.Table}({Keys}) VALUES ({Values})";
                 SqlCommand cmd = new SqlCommand(Query, conn);
                 conn.Open();

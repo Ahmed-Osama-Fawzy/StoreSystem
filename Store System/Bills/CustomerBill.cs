@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Store_System.Category
+namespace Store_System.Bills
 {
-    public partial class ShowFull : Form
+    public partial class CustomerBill : Form
     {
-        public ShowFull()
+        public CustomerBill()
         {
             InitializeComponent();
         }

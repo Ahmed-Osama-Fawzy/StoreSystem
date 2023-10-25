@@ -1,4 +1,5 @@
-﻿using Store_System.AppClasses.Bills;
+﻿using Store_System.AppClasses;
+using Store_System.AppClasses.Bills;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,25 +27,43 @@ namespace Store_System.Bills.SupplierBills
             Date.Text = DateTime.Now.ToString();
             DataBase DB = new DataBase("dbo", "Supplier");
             DataTable dt = DB.Select("Name");
-            Supplier.DisplayMember = "Name";
-            Supplier.ValueMember = "Name";
+            SupplierName.DisplayMember = "Name";
+            SupplierName.ValueMember = "Name";
             if (dt.Rows.Count > 0) {
-                Supplier.DataSource = dt; Supplier.Enabled = true;
+                SupplierName.DataSource = dt; SupplierName.Enabled = true;
             }else
-                Supplier.Enabled = false;
+                SupplierName.Enabled = false;
         }
-
-        private void NewBill_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void InsertSupplier_Click(object sender, EventArgs e)
         {
-            string SSupplier = Supplier.Text;
-            if (!string.IsNullOrEmpty(SSupplier))
+            string suppliername = SupplierName.Text;
+            if (!string.IsNullOrEmpty(suppliername))
             {
+                int userid = Convert.ToInt32(UserID.Text);
+                string sdate = Date.Text;
+                MainBill newbill = new MainBill();
+                newbill.UserID = userid;
+                newbill.Date = sdate;
+                AppClasses.Supplier supplier = new AppClasses.Supplier();
+                int supplierid = supplier.ReturnID(suppliername);
                 
+                if (newbill.Insert())
+                {
+                    int billid = newbill.ReturnID();
+                    if(billid != -1)
+                    {
+                        Enter NewForm = new Enter(supplierid,billid);
+                        NewForm.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("عفوا حدث خطا ما 1");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("2 عفوا حدث خطا ما");
+                }
             }
         }
     }

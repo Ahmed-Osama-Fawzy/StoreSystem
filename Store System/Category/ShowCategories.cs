@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace Store_System.Category
 {
-    public partial class ShowAll : Form
+    public partial class ShowCategories : Form
     {
-        public ShowAll()
+        public ShowCategories()
         {
             InitializeComponent();
+            AppClasses.Category category = new AppClasses.Category();
+            Categories.DataSource = category.SelectAll();
+        }
+
+        private void ShowFull_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

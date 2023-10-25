@@ -16,5 +16,31 @@ namespace Store_System.Category
         {
             InitializeComponent();
         }
+        public Remove(string S)
+        {
+            InitializeComponent();
+            UserID.Text = S;
+            Date.Text = DateTime.Now.ToString();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string SName = CategoryName.Text;
+            DialogResult result = MessageBox.Show("هل انت متاكد من حذف القسم , سوف يتم حذف جميع المنتجات بهذا القسم نهائيا" , "رسالة تاكيدية" , MessageBoxButtons.YesNo , MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                AppClasses.Category category = new AppClasses.Category();
+                category.Name = SName;
+                if (category.Remove())
+                {
+                    MessageBox.Show("تم الحذف بنجاح");
+                    CategoryName.Text = string.Empty;
+                }
+                else
+                {
+                    MessageBox.Show("عفوا لم تتم عملية لحذف بنجاح");
+                }
+            }
+        }
     }
 }

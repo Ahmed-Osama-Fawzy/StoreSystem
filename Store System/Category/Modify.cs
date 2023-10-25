@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Store_System.AppClasses;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,33 @@ namespace Store_System.Category
         public Modify()
         {
             InitializeComponent();
+        }
+        public Modify(string U)
+        {
+            InitializeComponent();
+            UserID.Text = U;
+            Date.Text = DateTime.Now.ToString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string OldName = CategoryOldName.Text;
+            string NewName = CategoryNewName.Text;
+            AppClasses.Category category = new AppClasses.Category();
+            if(!string.IsNullOrEmpty(OldName) && !string.IsNullOrEmpty(NewName))
+            {
+                category.Name = OldName;
+                if (category.Update(NewName))
+                {
+                    MessageBox.Show("تم تحديث البيانات بنجاح ");
+                    CategoryOldName.Text = string.Empty;
+                    CategoryNewName.Text = string.Empty;
+                }
+                else
+                {
+                    MessageBox.Show("عفوا حدث خطا ما");
+                }
+            }
         }
     }
 }

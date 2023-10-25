@@ -48,6 +48,10 @@ namespace Store_System
                     Home NewForm = new Home(AccountType, Convert.ToString(login.ID));
                     NewForm.ShowDialog();
                 }
+                else
+                {
+                    MessageBox.Show("عفوا البيانات المدخلة خاطئة");
+                }
             }
             else
             {
