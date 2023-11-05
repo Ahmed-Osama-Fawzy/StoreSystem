@@ -60,7 +60,7 @@ namespace Store_System.Supplier
                 }
                 else
                 {
-                    MessageBox.Show("عفوا حدث خطا في اضافة البيانات");
+                    MessageBox.Show("عفوا هذا الاسم مدخل مسبقا");
                 }
             }
             else

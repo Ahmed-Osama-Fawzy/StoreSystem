@@ -13,14 +13,13 @@ using Workshop_System.App_Class;
 
 namespace Store_System.Bills.SupplierBills
 {
-    public partial class NewBill : Form
+    public partial class EnterSupplier : Form
     {
-        public NewBill()
+        public EnterSupplier()
         {
             InitializeComponent();
         }
-
-        public NewBill(string S)
+        public EnterSupplier(string S)
         {
             InitializeComponent();
             UserID.Text = S;
@@ -46,23 +45,22 @@ namespace Store_System.Bills.SupplierBills
                 newbill.Date = sdate;
                 AppClasses.Supplier supplier = new AppClasses.Supplier();
                 int supplierid = supplier.ReturnID(suppliername);
-                
                 if (newbill.Insert())
                 {
                     int billid = newbill.ReturnID();
                     if(billid != -1)
                     {
-                        Enter NewForm = new Enter(supplierid,billid);
+                        EnterProducts NewForm = new EnterProducts(supplierid,billid,userid);
                         NewForm.ShowDialog();
                     }
                     else
                     {
-                        MessageBox.Show("عفوا حدث خطا ما 1");
+                        MessageBox.Show("عفوا حدث خطا ما");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("2 عفوا حدث خطا ما");
+                    MessageBox.Show("عفوا حدث خطا ما");
                 }
             }
         }

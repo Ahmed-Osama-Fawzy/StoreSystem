@@ -35,5 +35,30 @@ namespace Store_System.AppClasses.Bills
             }
             return -1;
         }
+        public bool CloseBill(int SI)
+        {
+            bool Closed = false;
+            bool UpdateBill = DB.Update("ID", $"{ID}", "true"
+                , "FullPrice", $"{FullPrice}", "true"
+                , "InMoney", $"{InMoney}", "true"
+                , "NetMoney", $"{NetMoney}", "true");
+            if(UpdateBill)
+            {
+                bool U1 = DB.CustomUpdate($"UPDATE Supplier SET InMoney += {FullPrice} , OutMoney += {InMoney} , NetMoney += {NetMoney} WHERE ID = {SI}");
+                if(U1)
+                {
+                    Closed = true;
+                }
+                else
+                {
+                    MessageBox.Show("عفوا حدث خطا في تحديث بيانات المورد");
+            }
+            }
+            else
+            {
+                MessageBox.Show("عفوا حدث خطا في تحديث بيانات الفاتورة");
+            }
+            return Closed;
+        }
     }
 }

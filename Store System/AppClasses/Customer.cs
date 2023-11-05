@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,6 +38,10 @@ namespace Store_System.AppClasses
                 "OutMoney", $"{0}", "true",
                 "NetMoney", $"{0}", "true");
             return Inserted;
+        }
+        public DataTable GetCustomers()
+        {
+            return DB.GetData("Name");
         }
     }
 }

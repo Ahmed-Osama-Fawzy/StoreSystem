@@ -17,17 +17,14 @@ namespace Workshop_System.App_Class
         public string Schema { get; set; }
         public string Name { get; set; }
         public string Table { get; set; }
-
-        public DataBase(string S, string N)
+        //
+        public DataBase(string Schema, string Name)
         {
-            this.Schema = S;
-            this.Name = N;
-            this.Table = Schema + "." + Name;
+            this.Schema = Schema;
+            this.Name = Name;
+            Table = $"{this.Schema}.{this.Name}";
         }
-
-        static string connection = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-
-
+        static string connection = ConfigurationManager.ConnectionStrings["connection"].ConnectionString;
         // Paramters as (TheKey,TheValue,Numriacl or not,.....)
         public bool Insert(params string[] Inputs)
         {
@@ -70,7 +67,6 @@ namespace Workshop_System.App_Class
             }
             return Inserted;
         }
-
         // Paramters as (TheKey,TheValue,Numrcail or Not , ..... ) first 3 index for primary key
         public bool Update(params string[] Inputs)
         {
@@ -124,16 +120,29 @@ namespace Workshop_System.App_Class
             }
             return Updated;
         }
-
-        public bool UpdateAll(string Key, string Value, string Numrical)
+        // Update Update Values Using 2 Condtions , Starts The Params With The 2 Condtions 
+        public bool XUpdate(params string[] Inputs)
         {
             SqlConnection conn = new SqlConnection(connection);
             bool Updated = false;
             try
             {
-                if (Numrical.ToLower() == "true")
+                string Selected = "";
+                for (int i = 6; i < Inputs.Length; i += 3)
                 {
-                    string Query = $"update {this.Table} set {Key} = {Value} ";
+                    if (Inputs[i + 2].ToLower() == "true")
+                    {
+                        Selected += $"{Inputs[i]} = {Inputs[i + 1]} ,";
+                    }
+                    else
+                    {
+                        Selected += $"{Inputs[i]} = N'{Inputs[i + 1]}' ,";
+                    }
+                }
+                Selected = Selected.Remove(Selected.Length - 1);
+                if (Inputs[2].ToLower() == "true" && Inputs[5].ToLower() == "true")
+                {
+                    string Query = $"update {this.Table} set {Selected} where {Inputs[0]} = {Inputs[1]} AND {Inputs[3]} = {Inputs[4]}";
                     SqlCommand cmd = new SqlCommand(Query, conn);
                     conn.Open();
                     int Rows = cmd.ExecuteNonQuery();
@@ -142,9 +151,32 @@ namespace Workshop_System.App_Class
                         Updated = true;
                     }
                 }
-                else
+                else if (Inputs[2].ToLower() == "false" && Inputs[5].ToLower() == "false")
                 {
-                    string Query = $"update {this.Table} set {Key} = '{Value}'";
+                    string Query = $"update {this.Table} set {Selected} where {Inputs[0]} = N'{Inputs[1]}' AND {Inputs[3]} = N'{Inputs[4]}'";
+                    SqlCommand cmd = new SqlCommand(Query, conn);
+                    conn.Open();
+                    int Rows = cmd.ExecuteNonQuery();
+                    if (Rows > 0)
+                    {
+                        Updated = true;
+                    }
+                }
+                else if (Inputs[2].ToLower() == "true" && Inputs[5].ToLower() == "false")
+                {
+                    string Query = $"update {this.Table} set {Selected} where {Inputs[0]} = {Inputs[1]} AND {Inputs[3]} = N'{Inputs[4]}'";
+                    MessageBox.Show(Query);
+                    SqlCommand cmd = new SqlCommand(Query, conn);
+                    conn.Open();
+                    int Rows = cmd.ExecuteNonQuery();
+                    if (Rows > 0)
+                    {
+                        Updated = true;
+                    }
+                }
+                else if (Inputs[2].ToLower() == "false" && Inputs[5].ToLower() == "true")
+                {
+                    string Query = $"update {this.Table} set {Selected} where {Inputs[0]} = N'{Inputs[1]}' AND {Inputs[3]} = {Inputs[4]}";
                     SqlCommand cmd = new SqlCommand(Query, conn);
                     conn.Open();
                     int Rows = cmd.ExecuteNonQuery();
@@ -164,7 +196,47 @@ namespace Workshop_System.App_Class
             }
             return Updated;
         }
-
+        // Update All Column of the table where this condtion
+        public bool UpdateAll(string Key, string Value, string Numrical)
+        {
+            SqlConnection conn = new SqlConnection(connection);
+            bool Updated = false;
+            try
+            {
+                if (Numrical.ToLower() == "true")
+                {
+                    string Query = $"update {this.Table} set {Key} = {Value} ";
+                    SqlCommand cmd = new SqlCommand(Query, conn);
+                    conn.Open();
+                    int Rows = cmd.ExecuteNonQuery();
+                    if (Rows > 0)
+                    {
+                        Updated = true;
+                    }
+                }
+                else
+                {
+                    string Query = $"update {this.Table} set {Key} = N'{Value}'";
+                    SqlCommand cmd = new SqlCommand(Query, conn);
+                    conn.Open();
+                    int Rows = cmd.ExecuteNonQuery();
+                    if (Rows > 0)
+                    {
+                        Updated = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("The Error IS: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return Updated;
+        }
+        //
         public bool CustomUpdate(string S)
         {
             SqlConnection conn = new SqlConnection(connection);
@@ -191,7 +263,6 @@ namespace Workshop_System.App_Class
             }
             return Updated;
         }
-
         // Paramters as (TheKey,TheValue,Numriacl or not,.....) 
         public bool Delete(params string[] Inputs)
         {
@@ -271,7 +342,32 @@ namespace Workshop_System.App_Class
             }
             return Deleted;
         }
-
+        public bool CustomDelete(string S)
+        {
+            SqlConnection conn = new SqlConnection(connection);
+            bool Deleted = false;
+            try
+            {
+                string Query = S;
+                SqlCommand cmd = new SqlCommand(Query, conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                conn.Open();
+                int Rows = cmd.ExecuteNonQuery();
+                if (Rows > 0)
+                {
+                    Deleted = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("The Error IS: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return Deleted;
+        }
         // Paramters as (all or Custom Columns)
         public DataTable Select(params string[] Inputs)
         {
@@ -439,18 +535,17 @@ namespace Workshop_System.App_Class
             }
             return dt;
         }
-        public DataTable GetData(string Key,string N)
+        //
+        public DataTable GetData(string Key)
         {
-            Schema = "dbo";
-            Name = N;
-            Table = Schema + "." + Name;
-            DataTable dt = SelectOne("Category", $"{Key}", "false", "Value");
+            DataTable dt = SelectOne("Category", Key, "false", "Value");
             if (dt.Rows.Count > 0)
             {
                 return dt;
             }
             return null;
         }
+        //
         public DataTable MulitpeSelect(string S, params string[] Inputs)
         {
             SqlConnection conn = new SqlConnection(connection);

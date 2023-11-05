@@ -84,14 +84,12 @@ namespace Store_System
 
         private void EnterBill_Click(object sender, EventArgs e)
         {
-            NewBill NewForm = new NewBill(UserID);
+            Bills.SupplierBills.EnterSupplier NewForm = new Bills.SupplierBills.EnterSupplier(UserID);
             NewForm.ShowDialog();
         }
 
         private void CreateBill_Click(object sender, EventArgs e)
         {
-            Bills.CustomerBill NewForm = new Bills.CustomerBill();
-            NewForm.ShowDialog();
         }
     }
 }

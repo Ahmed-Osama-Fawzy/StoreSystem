@@ -1,6 +1,6 @@
 ﻿namespace Store_System.Bills.SupplierBills
 {
-    partial class Enter
+    partial class EnterProducts
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Enter));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EnterProducts));
             this.label6 = new System.Windows.Forms.Label();
             this.ClearData = new System.Windows.Forms.Button();
             this.InsertSupplier = new System.Windows.Forms.Button();
@@ -48,6 +48,7 @@
             this.CategoryName = new System.Windows.Forms.ListBox();
             this.label12 = new System.Windows.Forms.Label();
             this.listBox2 = new System.Windows.Forms.ListBox();
+            this.FinishBill = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label6
@@ -66,7 +67,7 @@
             this.ClearData.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClearData.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClearData.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClearData.Location = new System.Drawing.Point(560, 333);
+            this.ClearData.Location = new System.Drawing.Point(306, 333);
             this.ClearData.Name = "ClearData";
             this.ClearData.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.ClearData.Size = new System.Drawing.Size(181, 56);
@@ -269,11 +270,27 @@
             this.listBox2.Size = new System.Drawing.Size(250, 29);
             this.listBox2.TabIndex = 155;
             // 
+            // FinishBill
+            // 
+            this.FinishBill.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.FinishBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FinishBill.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.FinishBill.Location = new System.Drawing.Point(554, 333);
+            this.FinishBill.Name = "FinishBill";
+            this.FinishBill.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.FinishBill.Size = new System.Drawing.Size(181, 56);
+            this.FinishBill.TabIndex = 168;
+            this.FinishBill.Text = "انهاء الفاتورة";
+            this.FinishBill.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.FinishBill.UseVisualStyleBackColor = false;
+            this.FinishBill.Click += new System.EventHandler(this.FinishBill_Click);
+            // 
             // Enter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 411);
+            this.Controls.Add(this.FinishBill);
             this.Controls.Add(this.ProductUnit);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.ProductNetPriceMany);
@@ -323,5 +340,6 @@
         private System.Windows.Forms.ListBox CategoryName;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.Button FinishBill;
     }
 }

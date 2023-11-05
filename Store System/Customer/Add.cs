@@ -28,23 +28,26 @@ namespace Store_System.Customer
             string SName = CustomerName.Text;
             string SAddress = CustomerAddress.Text;
             string SMobile = CustomerPhone.Text;
-            string SEmail = CustomerWhatsapp.Text;
+            string SWhatsapp = CustomerWhatsapp.Text;
             string SCity = CustomerCity.Text;
             string SAccountType = AccountType.Text;
             string SUserID = UserID.Text;
+            string SDate = Date.Text;
             if (!string.IsNullOrEmpty(SName)
                 && !string.IsNullOrEmpty(SAddress)
                 && !string.IsNullOrEmpty(SMobile)
-                && !string.IsNullOrEmpty(SEmail)
+                && !string.IsNullOrEmpty(SWhatsapp)
                 && !string.IsNullOrEmpty(SCity)
                 && !string.IsNullOrEmpty(SAccountType)
-                && !string.IsNullOrEmpty(SUserID))
+                && !string.IsNullOrEmpty(SUserID)
+                && !string.IsNullOrEmpty(SDate))
             {
                 AppClasses.Customer customer = new AppClasses.Customer();
+                customer.Date = SDate;
                 customer.Name = SName;
-                customer.Wahtsapp = SAddress;
+                customer.Address = SAddress;
                 customer.Mobile = SMobile;
-                customer.Email = SEmail;
+                customer.Wahtsapp = SWhatsapp;
                 customer.City = SCity;
                 customer.UserID = Convert.ToInt32(SUserID);
                 customer.AccountType = AccountType.Text;
@@ -77,11 +80,6 @@ namespace Store_System.Customer
             CustomerWhatsapp.Text = string.Empty;
             CustomerCity.Text = string.Empty;
             AccountType.SelectedItem = null;
-        }
-
-        private void Add_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

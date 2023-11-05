@@ -13,19 +13,21 @@ using Workshop_System.App_Class;
 
 namespace Store_System.Bills.SupplierBills
 {
-    public partial class Enter : Form
+    public partial class EnterProducts : Form
     {
-        public Enter()
+        public EnterProducts()
         {
             InitializeComponent();
         }
         public int supplierid;
         public int billid;
-        public Enter(int SI , int BI)
+        public int Userid;
+        public EnterProducts(int SI , int BI, int UI)
         {
             InitializeComponent();
             supplierid = SI;
             billid = BI;
+            Userid = UI;
             DataBase DB = new DataBase("dbo", "Category");
             DataTable dt = DB.Select("Name");
             CategoryName.DisplayMember = "Name";
@@ -97,14 +99,23 @@ namespace Store_System.Bills.SupplierBills
                         && product.Increse(product.OneProfit, "OneProfit",'=')
                         && product.Increse(product.ManyProfit, "ManyProfit",'='))
                     {
-                        MessageBox.Show("تم الاضافة بنجاح");
-                        CategoryName.SelectedItem = null;
-                        ProductName.Text = string.Empty;
-                        ProductAmount.Text = string.Empty;
-                        ProductPrice.Text = string.Empty;
-                        ProductUnit.Text = string.Empty;
-                        ProductNetPriceOne.Text = string.Empty;
-                        ProductNetPriceMany.Text = string.Empty;
+                        SupplierBill supplierBill = new SupplierBill();
+                        supplierBill.BillID = billid;
+                        supplierBill.SupplierID = supplierid;
+                        supplierBill.ProductID = product.ReturnID();
+                        supplierBill.Amount = product.Amount;
+                        supplierBill.Price = product.MainPrice;
+                        if (supplierBill.Insert())
+                        {
+                            MessageBox.Show("تم الاضافة بنجاح");
+                            CategoryName.SelectedItem = null;
+                            ProductName.Text = string.Empty;
+                            ProductAmount.Text = string.Empty;
+                            ProductPrice.Text = string.Empty;
+                            ProductUnit.Text = string.Empty;
+                            ProductNetPriceOne.Text = string.Empty;
+                            ProductNetPriceMany.Text = string.Empty;
+                        }
                     }
                 }
             }
@@ -122,6 +133,11 @@ namespace Store_System.Bills.SupplierBills
             ProductUnit.Text = string.Empty;
             ProductNetPriceOne.Text = string.Empty;
             ProductNetPriceMany.Text = string.Empty;
+        }
+        private void FinishBill_Click(object sender, EventArgs e)
+        {
+            CloseBill closebill = new CloseBill(Userid,billid,supplierid);
+            closebill.ShowDialog();
         }
     }
 }

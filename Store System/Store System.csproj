@@ -50,30 +50,36 @@
     <Compile Include="AppClasses\Bills\CustomerBill.cs" />
     <Compile Include="AppClasses\Bills\MainBill.cs" />
     <Compile Include="AppClasses\Bills\SupplierBill.cs" />
-    <Compile Include="AppClasses\Objects\Category.cs" />
+    <Compile Include="AppClasses\Category.cs" />
     <Compile Include="AppClasses\Controls\DataBase.cs" />
     <Compile Include="AppClasses\Controls\Login.cs" />
-    <Compile Include="AppClasses\Objects\Product.cs" />
-    <Compile Include="AppClasses\Objects\Supplier.cs" />
     <Compile Include="AppClasses\Controls\User.cs" />
-    <Compile Include="AppClasses\Objects\Customer.cs" />
-    <Compile Include="Bills\CustomerBill.cs">
+    <Compile Include="AppClasses\Customer.cs" />
+    <Compile Include="AppClasses\Product.cs" />
+    <Compile Include="AppClasses\Supplier.cs" />
+    <Compile Include="Bills\CustomerBills\EnterCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bills\CustomerBill.Designer.cs">
-      <DependentUpon>CustomerBill.cs</DependentUpon>
+    <Compile Include="Bills\CustomerBills\EnterCustomer.Designer.cs">
+      <DependentUpon>EnterCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Bills\SupplierBills\Enter.cs">
+    <Compile Include="Bills\SupplierBills\CloseBill.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bills\SupplierBills\Enter.Designer.cs">
-      <DependentUpon>Enter.cs</DependentUpon>
+    <Compile Include="Bills\SupplierBills\CloseBill.Designer.cs">
+      <DependentUpon>CloseBill.cs</DependentUpon>
     </Compile>
-    <Compile Include="Bills\SupplierBills\NewBill.cs">
+    <Compile Include="Bills\SupplierBills\EnterProducts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bills\SupplierBills\NewBill.Designer.cs">
-      <DependentUpon>NewBill.cs</DependentUpon>
+    <Compile Include="Bills\SupplierBills\EnterProducts.Designer.cs">
+      <DependentUpon>EnterProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bills\SupplierBills\EnterSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bills\SupplierBills\EnterSupplier.Designer.cs">
+      <DependentUpon>EnterSupplier.cs</DependentUpon>
     </Compile>
     <Compile Include="Category\Add.cs">
       <SubType>Form</SubType>
@@ -93,17 +99,11 @@
     <Compile Include="Category\Remove.Designer.cs">
       <DependentUpon>Remove.cs</DependentUpon>
     </Compile>
-    <Compile Include="Category\ShowAll.cs">
+    <Compile Include="Category\ShowCategories.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Category\ShowAll.Designer.cs">
-      <DependentUpon>ShowAll.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Category\ShowFull.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Category\ShowFull.Designer.cs">
-      <DependentUpon>ShowFull.cs</DependentUpon>
+    <Compile Include="Category\ShowCategories.Designer.cs">
+      <DependentUpon>ShowCategories.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer\Add.cs">
       <SubType>Form</SubType>
@@ -137,17 +137,29 @@
     <Compile Include="User\Add.Designer.cs">
       <DependentUpon>Add.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Bills\CustomerBill.resx">
-      <DependentUpon>CustomerBill.cs</DependentUpon>
+    <EmbeddedResource Include="Bills\CustomerBills\EnterCustomer.resx">
+      <DependentUpon>EnterCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bills\SupplierBills\Enter.resx">
-      <DependentUpon>Enter.cs</DependentUpon>
+    <EmbeddedResource Include="Bills\SupplierBills\CloseBill.resx">
+      <DependentUpon>CloseBill.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bills\SupplierBills\NewBill.resx">
-      <DependentUpon>NewBill.cs</DependentUpon>
+    <EmbeddedResource Include="Bills\SupplierBills\EnterProducts.resx">
+      <DependentUpon>EnterProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bills\SupplierBills\EnterSupplier.resx">
+      <DependentUpon>EnterSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Category\Add.resx">
       <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Category\Modify.resx">
+      <DependentUpon>Modify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Category\Remove.resx">
+      <DependentUpon>Remove.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Category\ShowCategories.resx">
+      <DependentUpon>ShowCategories.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer\Add.resx">
       <DependentUpon>Add.cs</DependentUpon>
