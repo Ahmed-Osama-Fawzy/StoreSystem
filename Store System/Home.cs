@@ -1,5 +1,6 @@
 ﻿using Store_System.AppClasses.Bills;
 using Store_System.Bills;
+using Store_System.Bills.CustomerBills;
 using Store_System.Bills.SupplierBills;
 using Store_System.Category;
 using Store_System.User;
@@ -90,6 +91,8 @@ namespace Store_System
 
         private void CreateBill_Click(object sender, EventArgs e)
         {
+            EnterCustomer entercustomer  = new EnterCustomer(UserID);
+            entercustomer.ShowDialog();
         }
     }
 }

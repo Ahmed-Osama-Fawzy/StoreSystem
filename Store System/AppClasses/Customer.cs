@@ -41,7 +41,22 @@ namespace Store_System.AppClasses
         }
         public DataTable GetCustomers()
         {
-            return DB.GetData("Name");
+            return DB.Select("Name");
+        }
+        public DataTable GetCustomers(string s)
+        {
+            DataTable dt = DB.SelectLike(s,"Name");
+            return dt;
+        }
+        public int ReturnId(string name)
+        {
+            DataTable dt = DB.SelectOne("Name", name, "false","ID");
+            if(dt != null)
+            {
+                DataRow dr = dt.Rows[0];
+                return int.Parse(dr["ID"].ToString());
+            }
+            return 0;
         }
     }
 }

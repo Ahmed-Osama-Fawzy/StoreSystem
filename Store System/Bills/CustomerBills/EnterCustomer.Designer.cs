@@ -36,6 +36,7 @@
             this.Date = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.UserID = new System.Windows.Forms.TextBox();
+            this.CustomersInput = new System.Windows.Forms.TextBox();
             this.Clients = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
@@ -55,7 +56,7 @@
             this.InsertSupplier.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.InsertSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InsertSupplier.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.InsertSupplier.Location = new System.Drawing.Point(122, 287);
+            this.InsertSupplier.Location = new System.Drawing.Point(127, 445);
             this.InsertSupplier.Name = "InsertSupplier";
             this.InsertSupplier.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.InsertSupplier.Size = new System.Drawing.Size(181, 56);
@@ -63,6 +64,7 @@
             this.InsertSupplier.Text = "استخراج الفاتورة";
             this.InsertSupplier.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.InsertSupplier.UseVisualStyleBackColor = false;
+            this.InsertSupplier.Click += new System.EventHandler(this.InsertSupplier_Click);
             // 
             // label10
             // 
@@ -119,21 +121,32 @@
             this.UserID.Size = new System.Drawing.Size(250, 31);
             this.UserID.TabIndex = 170;
             // 
+            // CustomersInput
+            // 
+            this.CustomersInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustomersInput.Location = new System.Drawing.Point(159, 194);
+            this.CustomersInput.Name = "CustomersInput";
+            this.CustomersInput.Size = new System.Drawing.Size(250, 26);
+            this.CustomersInput.TabIndex = 179;
+            this.CustomersInput.Text = "ادخل اسم العميل هنا";
+            this.CustomersInput.TextChanged += new System.EventHandler(this.CustomersInput_TextChanged);
+            // 
             // Clients
             // 
             this.Clients.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Clients.FormattingEnabled = true;
             this.Clients.ItemHeight = 25;
-            this.Clients.Location = new System.Drawing.Point(159, 205);
+            this.Clients.Location = new System.Drawing.Point(159, 235);
             this.Clients.Name = "Clients";
-            this.Clients.Size = new System.Drawing.Size(250, 29);
+            this.Clients.Size = new System.Drawing.Size(250, 204);
             this.Clients.TabIndex = 178;
             // 
             // EnterCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(423, 379);
+            this.ClientSize = new System.Drawing.Size(423, 510);
+            this.Controls.Add(this.CustomersInput);
             this.Controls.Add(this.Clients);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.InsertSupplier);
@@ -147,7 +160,6 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.Text = "استخراج فاتورة جديدة";
-            this.Load += new System.EventHandler(this.EnterCustomer_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,6 +174,7 @@
         private System.Windows.Forms.TextBox Date;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox UserID;
+        private System.Windows.Forms.TextBox CustomersInput;
         private System.Windows.Forms.ListBox Clients;
     }
 }

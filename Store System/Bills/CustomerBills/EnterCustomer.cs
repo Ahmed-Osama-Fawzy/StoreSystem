@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Store_System.AppClasses;
+using Store_System.AppClasses.Bills;
+
 namespace Store_System.Bills.CustomerBills
 {
     public partial class EnterCustomer : Form
@@ -16,26 +18,62 @@ namespace Store_System.Bills.CustomerBills
         public EnterCustomer()
         {
             InitializeComponent();
-            AppClasses.Customer customer = new AppClasses.Customer();
-            Clients.DataSource = customer.GetCustomers();
+        }
+        public EnterCustomer(string UI)
+        {
+            InitializeComponent();
+            UserID.Text = UI;
+            Date.Text = DateTime.Now.ToString();
+        }
+        AppClasses.Customer customer = new AppClasses.Customer();
+        private void CustomersInput_TextChanged(object sender, EventArgs e)
+        {
+            string search = CustomersInput.Text;
+            DataTable dt = customer.GetCustomers(search);
+            Clients.Items.Clear();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                DataRow dr = dt.Rows[i];
+                Clients.Items.Add(dr["Name"]);
+            }
         }
 
-        private void EnterCustomer_Load(object sender, EventArgs e)
+        private void InsertSupplier_Click(object sender, EventArgs e)
         {
-            String search = Clients.Text;
-
-            if (String.IsNullOrEmpty(search))
+            string UserId = UserID.Text;
+            string SData = Date.Text;
+            string CustomerName = Clients.Text;
+            if (!string.IsNullOrEmpty(CustomerName))
             {
-                Clients.Items.Clear();
-                Clients.Items.AddRange(_animals.ToArray());
+                int Customerid = customer.ReturnId(CustomerName);
+                int Userid = int.Parse(UserId);
+                if(Customerid > 0)
+                {
+                    MainBill newbill = new MainBill();
+                    newbill.UserID = Userid;
+                    if (newbill.Insert())
+                    {
+                        int Id = newbill.ReturnID();
+                        if (Id > 0)
+                        {
+                            ChooseProducts NewForm = new ChooseProducts(Customerid, Userid, id);
+                            NewForm.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("عفوا لقد حدث خطا ما");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("عفوا حدث خكا في انشاء الفاتورة");
+                    }
+                }
             }
-
-            var items = (from a in _animals
-                         where a.StartsWith(search)
-                         select a).ToArray<String>();
-
-            Clients.Items.Clear();
-            Clients.Items.AddRange(items);
+            else
+            {
+                MessageBox.Show("عفوا يجب اختيار اسم العميل اولا");
+            }
         }
     }
 }

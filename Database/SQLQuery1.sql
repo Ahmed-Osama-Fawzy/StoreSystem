@@ -165,3 +165,16 @@ select * from Product
 select * from Category
 
 SELECT TOP 1 ID FROM Bill order by ID DESC;
+
+select * from Customer;
+select * from Supplier;
+select * from Users;
+select * from Category;
+select * from CustomerBill;
+select * from SupplierBill;
+select * from Product;
+select * from Bill;
+
+
+
+

@@ -51,6 +51,31 @@ namespace Store_System.AppClasses
             else
                 Updated = DB.CustomUpdate($"UPDATE Product SET {S} {O} {N} WHERE ID = {ID}");
             return Updated;
-        }   
+        }
+        public float ReturnPriceFO()
+        {
+            DataTable dt = DB.SelectOne("Name", Name, "false", "MainPrice","OnePrpfit");
+            if (dt.Rows.Count > 0)
+            {
+                DataRow dr = dt.Rows[0];
+                return float.Parse(dr["MainPrice"].ToString())+ float.Parse(dr["OnePrpfit"].ToString());
+            }
+            return -1;
+        }
+        public float ReturnPriceFS()
+        {
+            DataTable dt = DB.SelectOne("Name", Name, "false", "MainPrice", "ManyPrpfit");
+            if (dt.Rows.Count > 0)
+            {
+                DataRow dr = dt.Rows[0];
+                return float.Parse(dr["MainPrice"].ToString()) + float.Parse(dr["ManyPrpfit"].ToString());
+            }
+            return -1;
+        }
+        public DataTable GetProducts(string s)
+        {
+            DataTable dt = DB.SelectLike(s, "Name");
+            return dt;
+        }
     }
 }
