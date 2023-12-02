@@ -24,6 +24,7 @@ namespace Workshop_System.App_Class
             this.Name = Name;
             Table = $"{this.Schema}.{this.Name}";
         }
+        public DataBase() { }
         static string connection = ConfigurationManager.ConnectionStrings["connection"].ConnectionString;
         // Paramters as (TheKey,TheValue,Numriacl or not,.....)
         public bool Insert(params string[] Inputs)

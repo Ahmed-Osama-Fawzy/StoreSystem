@@ -56,6 +56,5 @@ namespace Store_System.AppClasses.Bills
             }
             else return 0;
         }
-
     }
 }

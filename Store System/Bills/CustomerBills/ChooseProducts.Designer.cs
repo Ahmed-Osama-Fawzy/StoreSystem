@@ -155,6 +155,7 @@
             this.FinishBill.Text = "انهاء الفاتورة";
             this.FinishBill.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.FinishBill.UseVisualStyleBackColor = false;
+            this.FinishBill.Click += new System.EventHandler(this.FinishBill_Click);
             // 
             // TotalPrice
             // 

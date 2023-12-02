@@ -63,6 +63,12 @@
     <Compile Include="Bills\CustomerBills\ChooseProducts.Designer.cs">
       <DependentUpon>ChooseProducts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bills\CustomerBills\CloseBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bills\CustomerBills\CloseBill.Designer.cs">
+      <DependentUpon>CloseBill.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bills\CustomerBills\EnterCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,9 @@
     </Compile>
     <EmbeddedResource Include="Bills\CustomerBills\ChooseProducts.resx">
       <DependentUpon>ChooseProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bills\CustomerBills\CloseBill.resx">
+      <DependentUpon>CloseBill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bills\CustomerBills\EnterCustomer.resx">
       <DependentUpon>EnterCustomer.cs</DependentUpon>

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Workshop_System.App_Class;
 
 namespace Store_System.Bills.CustomerBills
 {
@@ -30,6 +31,11 @@ namespace Store_System.Bills.CustomerBills
                 DataRow dr = dt.Rows[i];
                 Products.Items.Add(dr["Name"]);
             }
+        }
+        private void FinishBill_Click(object sender, EventArgs e)
+        {
+            CloseBill newForm = new CloseBill(int BI, int UI);
+            newForm.ShowDialog();
         }
         public ChooseProducts(int CI , int UI , int BI)
         {
@@ -68,7 +74,16 @@ namespace Store_System.Bills.CustomerBills
                     {
                         MessageBox.Show("تم اضافة المنتج بنجاح");
                         TotalPrice.Text = customerBill.TotalPrice().ToString();
-                        ProductAmount.Text = customerBill.TotalItems().ToString();
+                        ProductsNumber.Text = customerBill.TotalItems().ToString();
+                        DataBase DB = new DataBase();
+                        DataTable DT = DB.CustomSelect($"SELECT P.Name, C.Amount,  C.Price,  Unit,C.Price*C.Amount as 'Total Price' FROM Product P JOIN CustomerBill C ON P.ID = C.ProductID WHERE C.BillID = {BillId}");
+                        DT.Columns["Name"].ColumnName = "الاسم";
+                        DT.Columns["Amount"].ColumnName = "الكمية";
+                        DT.Columns["Price"].ColumnName = "السعر";
+                        DT.Columns["Total Price"].ColumnName = "تجمالي السعر";
+                        DT.Columns["Unit"].ColumnName = "الوحدة";
+                        //DT.Columns["Counter"].ColumnName = "رقم";
+                        BillData.DataSource = DT;
                     }
                     else
                     {
