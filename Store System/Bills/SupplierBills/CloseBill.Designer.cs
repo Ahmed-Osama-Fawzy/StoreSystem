@@ -149,7 +149,6 @@
             this.label5.Size = new System.Drawing.Size(114, 25);
             this.label5.TabIndex = 72;
             this.label5.Text = "عدد المنتجات";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // ItemsNumber
             // 

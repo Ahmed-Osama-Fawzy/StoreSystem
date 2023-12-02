@@ -128,7 +128,6 @@
             this.CustomersInput.Name = "CustomersInput";
             this.CustomersInput.Size = new System.Drawing.Size(250, 26);
             this.CustomersInput.TabIndex = 179;
-            this.CustomersInput.Text = "ادخل اسم العميل هنا";
             this.CustomersInput.TextChanged += new System.EventHandler(this.CustomersInput_TextChanged);
             // 
             // Clients

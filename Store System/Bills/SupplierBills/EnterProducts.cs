@@ -22,12 +22,8 @@ namespace Store_System.Bills.SupplierBills
         public int supplierid;
         public int billid;
         public int Userid;
-        public EnterProducts(int SI , int BI, int UI)
+        public void FillData()
         {
-            InitializeComponent();
-            supplierid = SI;
-            billid = BI;
-            Userid = UI;
             DataBase DB = new DataBase("dbo", "Category");
             DataTable dt = DB.Select("Name");
             CategoryName.DisplayMember = "Name";
@@ -38,6 +34,14 @@ namespace Store_System.Bills.SupplierBills
             }
             else
                 CategoryName.Enabled = false;
+        }
+        public EnterProducts(int SI , int BI, int UI)
+        {
+            InitializeComponent();
+            supplierid = SI;
+            billid = BI;
+            Userid = UI;
+            FillData();
         }
         private void InsertSupplier_Click(object sender, EventArgs e)
         {

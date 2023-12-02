@@ -26,7 +26,7 @@ namespace Store_System.AppClasses.Bills
                , "Price", $"{Price}", "true");
             return Inserted;
         }
-        public int TotalItems()
+        public float TotalItems()
         {
             DataTable dt = DB.CustomSelect($"SELECT COUNT(ProductID) AS ItemsNumber FROM CustomerBill WHERE BillID = {BillID} AND CustomerID = {CustomerID}");
             if (dt.Rows.Count > 0)
@@ -56,5 +56,6 @@ namespace Store_System.AppClasses.Bills
             }
             else return 0;
         }
+
     }
 }

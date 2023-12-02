@@ -55,7 +55,30 @@ namespace Store_System.Bills.CustomerBills
                 {
                     ProductPrice = product.ReturnPriceFO();
                 }
-                
+                CustomerBill customerBill = new CustomerBill();
+                customerBill.BillID = BillId;
+                customerBill.CustomerID = CustomerId;
+                customerBill.ProductID = product.ReturnID();
+                customerBill.Amount = int.Parse(SProductAmount);
+                customerBill.Price = ProductPrice;
+                MessageBox.Show(product.ProductAvailableAmount().ToString());
+                if(product.ProductAvailableAmount() >= float.Parse(SProductAmount))
+                {
+                    if (customerBill.Insert())
+                    {
+                        MessageBox.Show("تم اضافة المنتج بنجاح");
+                        TotalPrice.Text = customerBill.TotalPrice().ToString();
+                        ProductAmount.Text = customerBill.TotalItems().ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("عفوا حدث خطا اثناء ادخال المنتج");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("عفوا الكيمة المطلوبة غير متاحة حاليا");
+                }
             }
             else
             {

@@ -19,19 +19,25 @@ namespace Store_System.Bills.SupplierBills
         {
             InitializeComponent();
         }
+        public void FillData()
+        {
+            DataBase DB = new DataBase("dbo", "Supplier");
+            DataTable dt = DB.Select("Name");
+            SupplierName.DisplayMember = "Name";
+            SupplierName.ValueMember = "Name";
+            if (dt.Rows.Count > 0)
+            {
+                SupplierName.DataSource = dt; SupplierName.Enabled = true;
+            }
+            else
+                SupplierName.Enabled = false;
+        }
         public EnterSupplier(string S)
         {
             InitializeComponent();
             UserID.Text = S;
             Date.Text = DateTime.Now.ToString();
-            DataBase DB = new DataBase("dbo", "Supplier");
-            DataTable dt = DB.Select("Name");
-            SupplierName.DisplayMember = "Name";
-            SupplierName.ValueMember = "Name";
-            if (dt.Rows.Count > 0) {
-                SupplierName.DataSource = dt; SupplierName.Enabled = true;
-            }else
-                SupplierName.Enabled = false;
+            FillData();
         }
         private void InsertSupplier_Click(object sender, EventArgs e)
         {
@@ -43,13 +49,13 @@ namespace Store_System.Bills.SupplierBills
                 MainBill newbill = new MainBill();
                 newbill.UserID = userid;
                 newbill.Date = sdate;
-                AppClasses.Supplier supplier = new AppClasses.Supplier();
-                int supplierid = supplier.ReturnID(suppliername);
                 if (newbill.Insert())
                 {
                     int billid = newbill.ReturnID();
                     if(billid != -1)
                     {
+                        AppClasses.Supplier supplier = new AppClasses.Supplier();
+                        int supplierid = supplier.ReturnID(suppliername);
                         EnterProducts NewForm = new EnterProducts(supplierid,billid,userid);
                         NewForm.ShowDialog();
                     }

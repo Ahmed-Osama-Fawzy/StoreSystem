@@ -178,3 +178,20 @@ select * from Bill;
 
 
 
+delete from Category
+delete from Customer
+delete from Supplier
+delete from Product
+delete from Bill
+delete from SupplierBill
+
+
+select * from Customer
+select * from Supplier
+select * from Product
+select * from Category
+select * from Bill
+select * from SupplierBill
+select * from CustomerBill
+
+

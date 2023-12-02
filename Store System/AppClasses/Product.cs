@@ -54,21 +54,31 @@ namespace Store_System.AppClasses
         }
         public float ReturnPriceFO()
         {
-            DataTable dt = DB.SelectOne("Name", Name, "false", "MainPrice","OnePrpfit");
+            DataTable dt = DB.SelectOne("Name", Name, "false", "MainPrice","OneProfit");
             if (dt.Rows.Count > 0)
             {
                 DataRow dr = dt.Rows[0];
-                return float.Parse(dr["MainPrice"].ToString())+ float.Parse(dr["OnePrpfit"].ToString());
+                return float.Parse(dr["MainPrice"].ToString())+ float.Parse(dr["OneProfit"].ToString());
             }
             return -1;
         }
         public float ReturnPriceFS()
         {
-            DataTable dt = DB.SelectOne("Name", Name, "false", "MainPrice", "ManyPrpfit");
+            DataTable dt = DB.SelectOne("Name", Name, "false", "MainPrice", "ManyProfit");
             if (dt.Rows.Count > 0)
             {
                 DataRow dr = dt.Rows[0];
-                return float.Parse(dr["MainPrice"].ToString()) + float.Parse(dr["ManyPrpfit"].ToString());
+                return float.Parse(dr["MainPrice"].ToString()) + float.Parse(dr["ManyProfit"].ToString());
+            }
+            return -1;
+        }
+        public float ProductAvailableAmount()
+        {
+            DataTable dt = DB.SelectOne("Name", Name, "false", "Amount");
+            if (dt.Rows.Count > 0)
+            {
+                DataRow dr = dt.Rows[0];
+                return float.Parse(dr["Amount"].ToString());
             }
             return -1;
         }

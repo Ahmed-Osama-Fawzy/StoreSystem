@@ -37,11 +37,9 @@ namespace Store_System.Bills.CustomerBills
                 Clients.Items.Add(dr["Name"]);
             }
         }
-
         private void InsertSupplier_Click(object sender, EventArgs e)
         {
             string UserId = UserID.Text;
-            string SData = Date.Text;
             string CustomerName = Clients.Text;
             if (!string.IsNullOrEmpty(CustomerName))
             {
@@ -56,7 +54,7 @@ namespace Store_System.Bills.CustomerBills
                         int Id = newbill.ReturnID();
                         if (Id > 0)
                         {
-                            ChooseProducts NewForm = new ChooseProducts(Customerid, Userid, id);
+                            ChooseProducts NewForm = new ChooseProducts(Customerid, Userid, Id);
                             NewForm.ShowDialog();
                         }
                         else

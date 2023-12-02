@@ -41,7 +41,8 @@ namespace Store_System.AppClasses.Bills
             bool UpdateBill = DB.Update("ID", $"{ID}", "true"
                 , "FullPrice", $"{FullPrice}", "true"
                 , "InMoney", $"{InMoney}", "true"
-                , "NetMoney", $"{NetMoney}", "true");
+                , "NetMoney", $"{NetMoney}", "true"
+                , "ProductsNumber", $"{ProductsNumber}", "true");
             if(UpdateBill)
             {
                 bool U1 = DB.CustomUpdate($"UPDATE Supplier SET InMoney += {FullPrice} , OutMoney += {InMoney} , NetMoney += {NetMoney} WHERE ID = {SI}");

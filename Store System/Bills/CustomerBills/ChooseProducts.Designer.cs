@@ -74,7 +74,6 @@
             this.ProductName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.ProductName.Location = new System.Drawing.Point(110, 34);
             this.ProductName.Name = "ProductName";
-            this.ProductName.ReadOnly = true;
             this.ProductName.Size = new System.Drawing.Size(250, 31);
             this.ProductName.TabIndex = 184;
             this.ProductName.TextChanged += new System.EventHandler(this.ProductName_TextChanged);
@@ -86,7 +85,6 @@
             this.ProductAmount.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.ProductAmount.Location = new System.Drawing.Point(110, 88);
             this.ProductAmount.Name = "ProductAmount";
-            this.ProductAmount.ReadOnly = true;
             this.ProductAmount.Size = new System.Drawing.Size(250, 31);
             this.ProductAmount.TabIndex = 185;
             // 

@@ -52,10 +52,6 @@ namespace Store_System.Bills.SupplierBills
                 }
             }
         }
-        private void label5_Click(object sender, EventArgs e)
-        {
-             
-        }
         private void BillInMoney_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(BillInMoney.Text))
