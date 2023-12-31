@@ -17,19 +17,30 @@ namespace Store_System.Category
         {
             InitializeComponent();
         }
-        public Modify(string U)
+        public Modify(string UI, string D)
         {
             InitializeComponent();
-            UserID.Text = U;
-            Date.Text = DateTime.Now.ToString();
+            UserID.Text = UI;
+            Date.Text = D;
         }
-
+        public Modify(string UI, string D,string CID)
+        {
+            InitializeComponent();
+            UserID.Text = UI;
+            Date.Text = D;
+            CategoryOldName.Text = CID;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
+            string TheDate = Date.Text;
+            string Userid = UserID.Text;
             string OldName = CategoryOldName.Text;
             string NewName = CategoryNewName.Text;
             AppClasses.Category category = new AppClasses.Category();
-            if(!string.IsNullOrEmpty(OldName) && !string.IsNullOrEmpty(NewName))
+            if(!string.IsNullOrEmpty(TheDate) 
+                && !string.IsNullOrEmpty(Userid)
+                && !string.IsNullOrEmpty(OldName)
+                && !string.IsNullOrEmpty(NewName))
             {
                 category.Name = OldName;
                 if (category.Update(NewName))
@@ -42,6 +53,10 @@ namespace Store_System.Category
                 {
                     MessageBox.Show("عفوا حدث خطا ما");
                 }
+            }
+            else
+            {
+                MessageBox.Show("عفوا يجب ادخال البيانات كاملة للتحديث");
             }
         }
     }

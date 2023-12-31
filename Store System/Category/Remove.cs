@@ -16,29 +16,47 @@ namespace Store_System.Category
         {
             InitializeComponent();
         }
-        public Remove(string S)
+        public Remove(string UI, string D)
         {
             InitializeComponent();
-            UserID.Text = S;
-            Date.Text = DateTime.Now.ToString();
+            UserID.Text = UI;
+            Date.Text = D;
+        }
+        public Remove(string UI, string D,string CID)
+        {
+            InitializeComponent();
+            UserID.Text = UI;
+            Date.Text = D;
+            CategoryName.Text = CID;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             string SName = CategoryName.Text;
+            string TheDate = Date.Text;
+            string Userid = UserID.Text;
             DialogResult result = MessageBox.Show("هل انت متاكد من حذف القسم , سوف يتم حذف جميع المنتجات بهذا القسم نهائيا" , "رسالة تاكيدية" , MessageBoxButtons.YesNo , MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 AppClasses.Category category = new AppClasses.Category();
-                category.Name = SName;
-                if (category.Remove())
+                if (!string.IsNullOrEmpty(TheDate)
+                    && !string.IsNullOrEmpty(Userid)
+                    && !string.IsNullOrEmpty(SName))
                 {
-                    MessageBox.Show("تم الحذف بنجاح");
-                    CategoryName.Text = string.Empty;
+                    category.Name = SName;
+                    if (category.Remove())
+                    {
+                        MessageBox.Show("تم الحذف بنجاح");
+                        CategoryName.Text = string.Empty;
+                    }
+                    else
+                    {
+                        MessageBox.Show("عفوا لم تتم عملية لحذف بنجاح");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("عفوا لم تتم عملية لحذف بنجاح");
+                    MessageBox.Show("عفوا يجب ادخال جميع البيانات للحذ");
                 }
             }
         }

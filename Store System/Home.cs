@@ -31,11 +31,6 @@ namespace Store_System
             UserID = N;
         }
 
-        private void Home_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
              
@@ -47,14 +42,9 @@ namespace Store_System
             NewForm.ShowDialog();
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
-            Category.Add NewForm = new Category.Add(UserID);
+            Category.Add NewForm = new Category.Add(UserID,DateTime.Now.ToString());
             NewForm.ShowDialog();
         }
 
@@ -78,11 +68,6 @@ namespace Store_System
             NewForm.ShowDialog();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void EnterBill_Click(object sender, EventArgs e)
         {
             Bills.SupplierBills.EnterSupplier NewForm = new Bills.SupplierBills.EnterSupplier(UserID);
@@ -93,6 +78,12 @@ namespace Store_System
         {
             EnterCustomer entercustomer  = new EnterCustomer(UserID);
             entercustomer.ShowDialog();
+        }
+
+        private void Categories_Click(object sender, EventArgs e)
+        {
+            Category.Category NewForm = new Category.Category(UserID);
+            NewForm.ShowDialog();
         }
     }
 }

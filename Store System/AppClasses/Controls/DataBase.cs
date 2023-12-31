@@ -537,16 +537,6 @@ namespace Workshop_System.App_Class
             return dt;
         }
         //
-        public DataTable GetData(string Key)
-        {
-            DataTable dt = SelectOne("Category", Key, "false", "Value");
-            if (dt.Rows.Count > 0)
-            {
-                return dt;
-            }
-            return null;
-        }
-        //
         public DataTable MulitpeSelect(string S, params string[] Inputs)
         {
             SqlConnection conn = new SqlConnection(connection);

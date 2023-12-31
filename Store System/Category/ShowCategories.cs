@@ -18,10 +18,5 @@ namespace Store_System.Category
             AppClasses.Category category = new AppClasses.Category();
             Categories.DataSource = category.SelectAll();
         }
-
-        private void ShowFull_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

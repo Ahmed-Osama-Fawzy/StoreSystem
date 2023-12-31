@@ -18,16 +18,11 @@ namespace Store_System.Category
             Date.Text = Convert.ToString(DateTime.Now);
         }
 
-        public Add(string S)
+        public Add(string UI,string D)
         {
             InitializeComponent();
-            UserID.Text = S;
-            Date.Text = Convert.ToString(DateTime.Now);
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-             
+            UserID.Text = UI;
+            Date.Text = D;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -35,7 +30,9 @@ namespace Store_System.Category
             string CDate = Date.Text;
             string UserId = UserID.Text;
             string Name = CategoryName.Text;
-            if(!string.IsNullOrEmpty(CDate) && !string.IsNullOrEmpty(UserId) && !string.IsNullOrEmpty(Name)) 
+            if(!string.IsNullOrEmpty(CDate) 
+                && !string.IsNullOrEmpty(UserId) 
+                && !string.IsNullOrEmpty(Name)) 
             {
                 AppClasses.Category category = new AppClasses.Category();
                 category.Name = Name;
@@ -45,10 +42,11 @@ namespace Store_System.Category
                 if(Inserted) {
 
                     MessageBox.Show("تم الاضافة بنجاح");
+                    CategoryName.Text = string.Empty;
                 }
                 else
                 {
-                    MessageBox.Show("عفوا لا يمكن الاضافة");
+                    MessageBox.Show("عفوا حدث خطا اثناء اضافة القسم, من فضلك حاول مره أخري");
                 }
             }
             else
@@ -57,9 +55,5 @@ namespace Store_System.Category
             }
         }
 
-        private void Add_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

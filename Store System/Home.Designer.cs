@@ -333,6 +333,7 @@
             this.Categories.TabIndex = 27;
             this.Categories.Text = "الاقسام";
             this.Categories.UseVisualStyleBackColor = false;
+            this.Categories.Click += new System.EventHandler(this.Categories_Click);
             // 
             // Users
             // 
@@ -578,7 +579,6 @@
             this.label3.Size = new System.Drawing.Size(131, 25);
             this.label3.TabIndex = 51;
             this.label3.Text = "حدد حقل البحث";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // button6
             // 
@@ -631,7 +631,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1107, 211);
             this.dataGridView1.TabIndex = 46;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Username
             // 
@@ -716,7 +715,6 @@
             this.RightToLeftLayout = true;
             this.Text = "الرئيسية";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Home_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();

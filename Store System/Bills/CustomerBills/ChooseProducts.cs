@@ -34,8 +34,7 @@ namespace Store_System.Bills.CustomerBills
         }
         private void FinishBill_Click(object sender, EventArgs e)
         {
-            CloseBill newForm = new CloseBill(int BI, int UI);
-            newForm.ShowDialog();
+            
         }
         public ChooseProducts(int CI , int UI , int BI)
         {

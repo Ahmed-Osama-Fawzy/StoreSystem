@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowCategories));
             this.Categories = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.Categories)).BeginInit();
@@ -35,24 +36,33 @@
             // 
             // Categories
             // 
+            this.Categories.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.Categories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Categories.Location = new System.Drawing.Point(2, 0);
             this.Categories.Name = "Categories";
-            this.Categories.Size = new System.Drawing.Size(468, 448);
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Categories.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.Categories.Size = new System.Drawing.Size(550, 300);
             this.Categories.TabIndex = 0;
             // 
             // ShowCategories
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 450);
+            this.ClientSize = new System.Drawing.Size(552, 300);
             this.Controls.Add(this.Categories);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ShowCategories";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.Text = "عرض اسماء الاقسام";
-            this.Load += new System.EventHandler(this.ShowFull_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Categories)).EndInit();
             this.ResumeLayout(false);
 

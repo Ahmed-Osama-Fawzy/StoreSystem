@@ -83,9 +83,9 @@
             this.label3.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.label3.Location = new System.Drawing.Point(108, 34);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(136, 25);
+            this.label3.Size = new System.Drawing.Size(139, 25);
             this.label3.TabIndex = 67;
-            this.label3.Text = "اضافة قسم جديد";
+            this.label3.Text = "حذف بيانات قسم";
             // 
             // label2
             // 

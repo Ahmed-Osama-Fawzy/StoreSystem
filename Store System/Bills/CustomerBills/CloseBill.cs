@@ -21,7 +21,6 @@ namespace Store_System.Bills.CustomerBills
         {
             InitializeComponent();
             customerill.BillID = B;
-            customerill.
 
         }
         private CustomerBill customerill = new CustomerBill();

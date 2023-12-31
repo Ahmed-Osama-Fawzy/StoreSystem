@@ -49,7 +49,6 @@
             this.label2.Size = new System.Drawing.Size(121, 25);
             this.label2.TabIndex = 58;
             this.label2.Text = "رقم المستخدم ";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // UserID
             // 
@@ -150,7 +149,6 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.Text = "اضافة قسم جديد";
-            this.Load += new System.EventHandler(this.Add_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
